@@ -1,0 +1,36 @@
+
+# 3 Digit ICDs
+* ATCs: 1767
+* ICDs: 1142
+* Samples:
+    Apixaban: 19468  
+    Dabigatran: 3659
+    Edoxaban: 2558
+    Rivaroxaban: 32787
+    
+# 4 Digit ICDs
+* ATCs: 1767
+* ICDs: 3795
+* Samples:
+    Apixaban: 19162  
+    Dabigatran: 3610
+    Edoxaban: 2522
+    Rivaroxaban: 32194
+    
+# 5 Digit ICDs
+* ATCs: 1767
+* ICDs: 4815
+* Samples:
+    Apixaban: 19181  
+    Dabigatran: 3611
+    Edoxaban: 2526
+    Rivaroxaban: 32217
+    
+# HMGs
+* ATCs: 1728
+* HMGs: 189
+* Samples:
+    Apixaban: 15969  
+    Dabigatran: 3014
+    Edoxaban: 1997
+    Rivaroxaban: 25436
