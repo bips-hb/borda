@@ -70,7 +70,7 @@ computeKendallsTau <- function(raw_data) {
 #' @return Plot of the Kendall's Tau correlation matrix
 #' @export
 createKendallCorrelationPlot <- function(cormat) { 
-  melted_cormat <- melt(cormat, na.rm = TRUE)
+  melted_cormat <- reshape2::melt(cormat, na.rm = TRUE)
 
   p <- ggplot(data = melted_cormat, aes(Var2, Var1, fill = value)) +
     geom_tile(color = "white") +

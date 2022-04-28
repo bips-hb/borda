@@ -16,6 +16,7 @@ library(ggrepel)
 library(readr)
 library(dplyr)
 library(ggplot2)
+library(reshape2)
 
 # Load all the functionality (functions for computing Borda count etc.)
 source("R/functionality.R")
