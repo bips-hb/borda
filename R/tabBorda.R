@@ -1,15 +1,21 @@
-tabBorda <-  tabPanel("BordaCount", 
+tabBorda <-  tabPanel("Borda Ranking", 
                      withMathJax(),
+                     shinyjs::useShinyjs(),
                      sidebarLayout(
                        sidebarPanel(
-                         p(""),
-                         actionButton("borda", "Add Borda Count"),
-                         p(""),
-                         downloadLink("downloadData", "Download"),
+                         #uiOutput("selection_methods"),
+                         # 
+                         # p("Click Process to create the Bordacount with your chosen methods"),
+                         # actionButton("rnks", "Process"),
+                         # p(""),
+                         # 
+                         #p(""),
+                         #actionButton("init", "Download", icon = icon("download")),
+                         downloadButton("downloadBorda", "Download")
                        ),
                        mainPanel(
-                         
-                         tableOutput("bordacount")
+                         dataTableOutput("borda_rank")
+                         #tableOutput("ranks")
                          
                        ))
 )

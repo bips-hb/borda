@@ -1,24 +1,19 @@
-tabICDs <-  tabPanel("Plot - ICD's", 
+tabICDs <-  tabPanel("Plot ICDs", 
                      withMathJax(),
                      shinyjs::useShinyjs(),
                      sidebarLayout(
                        sidebarPanel(
-                         textInput("Code", "Type Icd code"),
+                         textInput("icd_codes", "Type ICD code(s)"),
                          
-                         actionButton("goIcd", "Plot"),
+                         actionButton("plot_icd", "Plot"),
+                         checkboxInput("show_icd_codes", label = "Show ICD codes", value = TRUE),
                          hr(""),
-                         checkboxInput("label_check", label = "Add Labels", value = TRUE),
-                         hr(""),
-                         hr(""),
-                         checkboxInput("Hide", label = "Hide ICD-Codes", value = FALSE),
-                         hr(""),
-                         hr(""),
-                         downloadButton('downloadPlot','Download Plot')
+                         downloadButton('downloadICDPlot','Download Figure')
                          
                        ),
                        mainPanel(
                          
-                         plotOutput("ICDs")
+                         plotOutput("ICDPlot")
                          
                        ))
 )

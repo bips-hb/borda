@@ -2,44 +2,33 @@ tabMain <- tabPanel("Main",
                     withMathJax(),
                     sidebarLayout(
                       sidebarPanel(
-                        p(strong("Adverse Event or Innocent Bystander? A Systematic Comparison of 
-                                  Statistical Discovery Methods for Spontaneous Reporting Systems"),
+                        
+                        
+                        
+                        p(strong("A Discovery and Verification Approach for Pharmacovigilance using Electronic Health Care Data"),
                           br(),
-                          em("L.J. Dijkstra, M. Garling, R. Foraita & I. Pigeot"),
+                          em("L.J. Dijkstra, T. Schink, R. Linder, M. Schwaninger, I. Pigeot, M.N. Wright, R. Foraita"),
                           br(),
                           br(),
-                          em("Submitted (2018)"),
+                          em("Submitted (2022)"),
                           hr(),
-                          p("In order to see all results for a particular parameter 
-                            setting, go to the tab ", 
-                            em("Ranking")),
-                          br(),
-                          p("In order to see all results for one particular method, 
-                            go to the tab ",
-                            em("Methods")),
-                          hr(), 
+                          p("In order to explore the data presented in the paper or to upload your 
+                            own dataset, go the tab", 
+                            em("Data")),
+                          p("In order to see the Borda count ranking go to tab ",
+                            em("Borda Ranking")),
+                          p("The Kendall's tau correlations between the different methods 
+                           can be found on tab",  
+                           em("Borda Ranking")), 
                           p("The R code used for this project is publicly available under the
-                            GPL-3 license and can be found at: "), 
-                          tags$ul(
-                            tags$li(
-                              a("SRSim", href="https://github.com/bips-hb/srsim"),
-                              ": a spontaneous reporting data simulator"
-                            ),
-                            tags$li(
-                              a("PVM", href="https://github.com/bips-hb/pvm"),
-                              ": an R package containing the implementation of all the 27 methods used here"
-                            ),
-                            tags$li(
-                              a("pvmcomparison", href="https://github.com/bips-hb/pvmcomparison"),
-                              " contains all the code for generating the results presented here"
-                            )
-                          )
+                            GPL-3 license and can be found at",  
+                            a("borda", href="https://github.com/bips-hb/borda"))
                           
                         )
                       )
                       ,
                       mainPanel(
-                        h1("Comparing Methods for Pharmacovigilance"), 
+                        h1("Pharmacovigilance using the Borda Count"), 
                         p("Spontaneous reporting systems (SRSs) are often used in the 
                           field of pharmacovigilance to discover previously unknown 
                           adverse events (AEs). Over the last three decades a plethora
