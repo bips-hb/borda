@@ -134,8 +134,6 @@ server <- function(input, output, session) {
     # Get only those ICD codes 
     borda <- dataset$borda_dataset %>% filter(ICD %in% icds) 
     
-    print(borda) 
-    
     # Check whether the ICD codes actually exist
     if (nrow(borda) == 0) { 
       shinyalert("ICD codes not found", 
