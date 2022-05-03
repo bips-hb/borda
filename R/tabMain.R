@@ -107,21 +107,50 @@ tabMain <- tabPanel("Main",
                         p(" We will go over each tab and explain what it does."), 
                         
                         h4("Tab 'Data'"),
+                        p("The dataset can be found here. There are multiple columns. The first, 'ICD' contains 
+                          the ICD code. The second 'Description' contains the description of the ICD code. The other columns
+                          show the ranks given to the ICD code by each method. The column 'BCPNN' shows the ranking for 
+                          the BCPNN; the column 'LGS' shows the ranking for the LGPS etc."),
+                        p("You can upload your own file and use the app to analyze the data. See Section 
+                          'Uploading your own dataset' for the details."), 
                         
                         h4("Tab 'Borda Ranking'"), 
+                        p("This tab shows the dataset as in the Data tab, but with two additional columns: 'Borda'
+                          shows the Borda ranking, based on the Borda count. The column 'relative_rank' is the 
+                          Borda ranking divided by the total number of ICD codes listed."),
+                        p("The Download button provides you with the possibility to download the table as a CSV file."), 
                         
                         h4("Tab 'Kendall's tau'"), 
+                        p("This tab shows the Kendall's tau correlations between the rankings of the different methods 
+                          as a heatmap. See the paper for more details."), 
                         
                         h4("Tab 'Plot ICDs'"), 
+                        p("This tab provides to possiblity to explore the relative rank of multiple ICD codes 
+                          simultaneosly. This can useful if one wants to explore the signal strength for a 
+                          specific class of ICD codes."), 
                         
                         h2("Uploading your own dataset"), 
-                        p("CSV file with the first two columns: 'ICD' and 'Description'. 
-                        They are obligatory. Next columns are the methods."), 
+                        p("In case you want to upload your own dataset, you can (see Tab 'Data'). 
+                        The file show be a CSV (comma-separated values) files. The first two columns
+                        should have the header 'ICD' and 'Description'. An error message will appear 
+                        if the file does not have these. In case there is no description, you can leave the 
+                        column empty. 
+                        The other columns need to contain the rankings of the different methods you used. 
+                        The name of the method should be the name of the column."),
+                        p("For example, the CSV file: "),
+                        p("\"ICD\",\"Description\",\"method1\", \"method2\", \"method3\"", br(),
+                          "\"ICD01\", \"hello\", 1, 3, 2", br(),
+                          "\"ICD02\", \"how\", 2, 2, 1", br(),
+                          "\"ICD03\", \"are\", 3, 1, 4", br(),
+                          "\"ICD04\", \"you\", 4, 4, 3", br(),
+                          style = "font-family: 'Courier'"), 
+                        p("leads to the table:"), 
+                        
                         p("Go to the tab 'Data' and upload the file. You will see it 
                         gets uploaded. The other tabs with the Borda count, 
                         the Kendall's tau correlation matrix and the ability 
                         to plot individual or multiple ICD codes, 
-                        gets updated immediately.")
+                        get updated immediately.")
                         
                       ) 
                       
