@@ -17,7 +17,7 @@ tabData <- tabPanel("Data",
                                        ".csv")),
                     p(br()), 
                     p(
-                      strong("How to upload your own ranking"),
+                      "See the Main page for how to upload your own dataset",
                     )
                 ),
                            

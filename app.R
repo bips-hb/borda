@@ -74,6 +74,10 @@ server <- function(input, output, session) {
                tabICDs)
     })
   
+  # create the example table for main page 
+  example_data <- read_csv("data/example_data.csv")
+  output$example_table <- renderDataTable({return(example_data)})
+  
   # Changes all the plots/tables in the app with the given dataset object
   useThisDataset <- function(dataset) { 
     # change the ranking table on the 'Data' tab

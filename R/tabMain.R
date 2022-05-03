@@ -129,7 +129,7 @@ tabMain <- tabPanel("Main",
                           simultaneosly. This can useful if one wants to explore the signal strength for a 
                           specific class of ICD codes."), 
                         
-                        h2("Uploading your own dataset"), 
+                        h2("Uploading Your Own Dataset"), 
                         p("In case you want to upload your own dataset, you can (see Tab 'Data'). 
                         The file show be a CSV (comma-separated values) files. The first two columns
                         should have the header 'ICD' and 'Description'. An error message will appear 
@@ -145,7 +145,7 @@ tabMain <- tabPanel("Main",
                           "\"ICD04\", \"you\", 4, 4, 3", br(),
                           style = "font-family: 'Courier'"), 
                         p("leads to the table:"), 
-                        
+                        dataTableOutput("example_table"), 
                         p("Go to the tab 'Data' and upload the file. You will see it 
                         gets uploaded. The other tabs with the Borda count, 
                         the Kendall's tau correlation matrix and the ability 
