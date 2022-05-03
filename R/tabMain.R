@@ -22,7 +22,28 @@ tabMain <- tabPanel("Main",
                            em("Borda Ranking")), 
                           p("The R code used for this project is publicly available under the
                             GPL-3 license and can be found at",  
-                            a("borda", href="https://github.com/bips-hb/borda"))
+                            a("borda", href="https://github.com/bips-hb/borda")), 
+                          hr(),
+                          
+                          h4("Conflict of Interest"), 
+                          
+                          p("The authors declare that there are no conflicts of interest"),
+                          
+                          hr(), 
+                          
+                          h4("Contact"),
+                          
+                          p("Louis Dijkstra",
+                            br(),
+                            "Leibniz Institute for Prevention Research and Epidemiology - BIPS",
+                            br(),
+                            "Department Biometry & Data Management",
+                            br(),
+                            "E-mail:", 
+                            a("dijkstra@leibniz-bips.de"),
+                            br(),
+                            a("http://www.leibniz-bips.de/en/")
+                          )
                           
                         )
                       )
@@ -72,6 +93,7 @@ tabMain <- tabPanel("Main",
                           tags$li("Random Forests (RF)"), 
                           tags$li("LASSO.")
                         ),
+                        p("All details of the study can be found in the paper and in the Supplementary Material."),
                         
                         h3("Tabs"), 
                         
