@@ -19,6 +19,9 @@ library(reshape2)
 # Load all the functionality (functions for computing Borda count etc.)
 source("R/functionality.R")
 
+# ICD codes text initially on the ICD codes tab
+initial_icd_codes <- "D508, E8"
+
 # Load the individual tabs ---
 source("R/tabMain.R")
 source("R/tabData.R")
@@ -108,6 +111,15 @@ server <- function(input, output, session) {
       
       dataset <<- createDatasetObject(raw_data)
       useThisDataset(dataset)
+      
+      # update the example text on the ICD plot tab
+      icd_codes <- paste(dataset$raw_data$ICD[1:min(3, length(dataset$raw_data$ICD))], collapse = ', ')
+      updateTextInput(session, "icd_codes", value = icd_codes)
+      
+      # update the example ICD plot 
+      output$ICDPlot <- renderPlot(
+        createICDPlot(get_data_selection_of_icd_codes(icd_codes), show_icd_codes = TRUE)
+      )
     }
   )
   
@@ -115,6 +127,14 @@ server <- function(input, output, session) {
   observeEvent(input$load_original_data, {
     dataset <<- rivaroxaban_dataset
     useThisDataset(dataset)  
+    # Set the input text on the ICD Plot tab back
+    updateTextInput(session, "icd_codes", value = initial_icd_codes)
+    
+    # update the example ICD plot 
+    output$ICDPlot <- renderPlot(
+      createICDPlot(get_data_selection_of_icd_codes(initial_icd_codes), show_icd_codes = TRUE)
+    )
+    
   }) 
   
   # ---- FUNCTIONALITY OF THE BORDA TAB ----
@@ -130,23 +150,15 @@ server <- function(input, output, session) {
   
   # ---- FUNCTIONALITY OF THE ICD PLOTS ----
   
+  # initially, show example plot
+  output$ICDPlot <- renderPlot(
+      createICDPlot(get_data_selection_of_icd_codes(initial_icd_codes), show_icd_codes = TRUE)
+    ) 
+  
   observeEvent(input$plot_icd, {
     ### Process the ICD input
-    patterns <- strsplit(input$icd_codes, split = ", ")[[1]]
+    borda <- get_data_selection_of_icd_codes(input$icd_codes)
     
-    print(patterns)
-    
-    # Add an OR | sign for detecting the patterns later
-    patterns <- paste(patterns, collapse = "|")
-  
-    print(patterns)
-    
-    # Find the appropriate indices 
-    indices <- stringr::str_which(dataset$borda_dataset$ICD, patterns)
-
-    # get the selected dataset 
-    borda <- dataset$borda_dataset %>% dplyr::slice(indices)
-  
     # Check whether the ICD codes actually exist
     if (nrow(borda) == 0) { 
       shinyalert("ICD codes not found", 
@@ -155,8 +167,7 @@ server <- function(input, output, session) {
     }
     
     # Create the plot
-    output$ICDPlot <- renderPlot(createICDPlot(borda, 
-                                               show_icd_codes = input$show_icd_codes)) 
+    output$ICDPlot <- renderPlot(createICDPlot(borda, show_icd_codes = input$show_icd_codes)) 
   })
   
   output$downloadICDPlot <- downloadHandler(

@@ -119,8 +119,19 @@ createICDPlot <- function(borda_dataset, show_icd_codes = FALSE) {
       )
   
   if (show_icd_codes) { 
-    p <- p + ggrepel::geom_text_repel(direction = "y") #geom_text position=position_jitter(width=1,height=1)
+    p <- p + ggrepel::geom_text_repel(max.overlaps = 20, direction = "y") #geom_text position=position_jitter(width=1,height=1)
   }
 
   return(p)
+}
+
+get_data_selection_of_icd_codes <- function(raw_text) { 
+  ### Process the ICD input
+  patterns <- strsplit(raw_text, split = ", ")[[1]]
+  # Add an OR | sign for detecting the patterns later
+  patterns <- paste(patterns, collapse = "|")
+  # Find the appropriate indices 
+  indices <- stringr::str_which(dataset$borda_dataset$ICD, patterns)
+  # get the selected dataset 
+  borda <- dataset$borda_dataset %>% dplyr::slice(indices) 
 }
