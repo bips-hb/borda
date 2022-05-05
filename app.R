@@ -7,7 +7,7 @@ rm(list = ls())
 
 # Load libaries --- 
 library(shiny)
-library(shinyalert)
+#library(shinyalert)
 
 library(stringr)
 library(dplyr)
