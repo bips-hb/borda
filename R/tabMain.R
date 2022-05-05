@@ -91,7 +91,7 @@ tabMain <- tabPanel("Main",
                           tags$li("The Bayesian Confidence Propagation Neural Network (BCPNN)"), 
                           tags$li("The Longitudinal Gamma Poisson Shrinker (LGPS)"), 
                           tags$li("Random Forests (RF)"), 
-                          tags$li("LASSO.")
+                          tags$li("LASSO")
                         ),
                         p("All details of the study can be found in the paper and in the Supplementary Material."),
                         

@@ -7,10 +7,10 @@ rm(list = ls())
 
 # Load libaries --- 
 library(shiny)
+library(shinyalert)
 library(shinyWidgets)
 library(shinyjs)
 library(shinyBS)
-library(shinyalert)
 
 library(ggrepel)
 library(readr)
