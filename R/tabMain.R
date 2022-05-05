@@ -20,9 +20,9 @@ tabMain <- tabPanel("Main",
                           p("The Kendall's tau correlations between the different methods 
                            can be found on tab",  
                            em("Borda Ranking")), 
-                          p("The R code used for this project is publicly available under the
+                          p("The R code used for this R-Shiny app is publicly available under the
                             GPL-3 license and can be found at",  
-                            a("borda", href="https://github.com/bips-hb/borda")), 
+                            a("github.com/bips-hb/borda", href="https://github.com/bips-hb/borda")), 
                           hr(),
                           
                           h4("Conflict of Interest"), 
@@ -61,8 +61,6 @@ tabMain <- tabPanel("Main",
                         p(strong("A Discovery and Verification Approach for Pharmacovigilance using Electronic Health Care Data"),
                           br(),
                           em("L.J. Dijkstra, T. Schink, R. Linder, M. Schwaninger, I. Pigeot, M.N. Wright, R. Foraita"),
-                          br(),
-                          em("Submitted (2022)")
                         ),
                         p("Not only can you explore our results in more depth, this app also 
                           allows you to use your dataset in order to select signals 
