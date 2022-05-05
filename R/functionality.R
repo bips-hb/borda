@@ -1,8 +1,8 @@
 # Auxilary function for creating the standard dataset given CSV file: 
 create_rds_file_default_dataset <- function(path = "data/raw_rivaroxaban_dataset.csv") {
-  raw_data <- read_csv(path) 
+  raw_data <- read.csv(path, encoding = "UTF-8") 
   dataset <- createDatasetObject(raw_data) 
-  write_rds(dataset, "data/rivaroxaban_data.rds")
+  write_rds(dataset, "data/rivaroxaban_dataset.rds")
 }
 
 #' Compute Borda Ranking
