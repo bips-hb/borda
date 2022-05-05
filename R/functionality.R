@@ -119,7 +119,7 @@ createICDPlot <- function(borda_dataset, show_icd_codes = FALSE) {
       )
   
   if (show_icd_codes) { 
-    p <- p + ggrepel::geom_text_repel() #geom_text position=position_jitter(width=1,height=1)
+    p <- p + ggrepel::geom_text_repel(direction = "y") #geom_text position=position_jitter(width=1,height=1)
   }
 
   return(p)
