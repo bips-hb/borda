@@ -1,3 +1,5 @@
+initial_icd_codes <<- "D508, E8"
+
 tabICDs <-  tabPanel("Plot ICDs", 
                      withMathJax(),
                      shinyjs::useShinyjs(),

@@ -3,11 +3,11 @@
 ########################################################
 
 # empty environment
-rm(list = ls())
+# rm(list = ls())
 
 # Load libaries --- 
 library(shiny)
-#library(shinyalert)
+library(shinyalert)
 
 library(stringr)
 library(dplyr)
@@ -20,7 +20,7 @@ library(reshape2)
 source("R/functionality.R")
 
 # ICD codes text initially on the ICD codes tab
-initial_icd_codes <- "D508, E8"
+initial_icd_codes <<- "D508, E8"
 
 # Load the individual tabs ---
 source("R/tabMain.R")
@@ -59,7 +59,6 @@ ui <- fluidPage( withMathJax(),
   tagList(tags$head(
     tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
   )),
-  
   uiOutput("UIafterLogin")
 )
 
