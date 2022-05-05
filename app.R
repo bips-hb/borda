@@ -8,10 +8,9 @@ rm(list = ls())
 # Load libaries --- 
 library(shiny)
 library(shinyalert)
-library(shinyWidgets)
-library(shinyjs)
-library(shinyBS)
 
+library(stringr)
+library(dplyr)
 library(ggrepel)
 library(readr)
 library(ggplot2)
@@ -132,12 +131,22 @@ server <- function(input, output, session) {
   # ---- FUNCTIONALITY OF THE ICD PLOTS ----
   
   observeEvent(input$plot_icd, {
-    # Process the ICD input
-    icds <- strsplit(input$icd_codes, split = ", ")[[1]]
+    ### Process the ICD input
+    patterns <- strsplit(input$icd_codes, split = ", ")[[1]]
     
-    # Get only those ICD codes 
-    borda <- dataset$borda_dataset %>% filter(ICD %in% icds) 
+    print(patterns)
     
+    # Add an OR | sign for detecting the patterns later
+    patterns <- paste(patterns, collapse = "|")
+  
+    print(patterns)
+    
+    # Find the appropriate indices 
+    indices <- stringr::str_which(dataset$borda_dataset$ICD, patterns)
+
+    # get the selected dataset 
+    borda <- dataset$borda_dataset %>% dplyr::slice(indices)
+  
     # Check whether the ICD codes actually exist
     if (nrow(borda) == 0) { 
       shinyalert("ICD codes not found", 
