@@ -7,14 +7,10 @@ rm(list = ls())
 
 # Load libaries --- 
 library(shiny)
-library(shinyWidgets)
-library(shinyjs)
-library(shinyBS)
 library(shinyalert)
 
 library(ggrepel)
 library(readr)
-library(dplyr)
 library(ggplot2)
 library(reshape2)
 
