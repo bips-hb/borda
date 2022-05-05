@@ -95,12 +95,12 @@ server <- function(input, output, session) {
       
       # check whether documents is correct
       if (colnames(raw_data)[1] != "ICD" || colnames(raw_data)[2] != "Description") { 
-        shinyalert("Wrong Datafile", "The first and second column should be called 'ICD' and 'Description'") 
+        shinyalert::shinyalert("Wrong Datafile", "The first and second column should be called 'ICD' and 'Description'") 
         return()
       }
       
       if (ncol(raw_data) < 3) { 
-         shinyalert("Wrong Datafile", "Only contains 'ICD' and 'Description'; there are no results")
+         shinyalert::shinyalert("Wrong Datafile", "Only contains 'ICD' and 'Description'; there are no results")
         return()
       }
       
