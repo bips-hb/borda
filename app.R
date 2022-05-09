@@ -19,9 +19,6 @@ library(reshape2)
 # Load all the functionality (functions for computing Borda count etc.)
 source("R/functionality.R")
 
-# ICD codes text initially on the ICD codes tab
-initial_icd_codes <<- "D508, E8"
-
 # Load the individual tabs ---
 source("R/tabMain.R")
 source("R/tabData.R")
@@ -52,7 +49,7 @@ createDatasetObject <- function(raw_data) {
 rivaroxaban_dataset <- readRDS("data/rivaroxaban_dataset.rds")
 
 # used to store a possibly custom dataset (initially the dataset from the paper)
-dataset <- rivaroxaban_dataset
+dataset <<- rivaroxaban_dataset
 
 # Define UI ----
 ui <- fluidPage( withMathJax(),
