@@ -51,6 +51,9 @@ rivaroxaban_dataset <- readRDS("data/rivaroxaban_dataset.rds")
 # used to store a possibly custom dataset (initially the dataset from the paper)
 dataset <<- rivaroxaban_dataset
 
+# smaller dataset, only with the ICD codes given in the input of the ICD plot tab
+sub_dataset_icd_codes <<- get_data_selection_of_icd_codes(initial_icd_codes)
+
 # Define UI ----
 ui <- fluidPage( withMathJax(),
   tagList(tags$head(
@@ -111,10 +114,11 @@ server <- function(input, output, session) {
       # update the example text on the ICD plot tab
       icd_codes <- paste(dataset$raw_data$ICD[1:min(3, length(dataset$raw_data$ICD))], collapse = ', ')
       updateTextInput(session, "icd_codes", value = icd_codes)
+      sub_dataset_icd_codes <<- get_data_selection_of_icd_codes(icd_codes)
       
       # update the example ICD plot 
       output$ICDPlot <- renderPlot(
-        createICDPlot(get_data_selection_of_icd_codes(icd_codes), show_icd_codes = TRUE)
+        createICDPlot(sub_dataset_icd_codes, show_icd_codes = input$show_icd_codes)
       )
     }
   )
@@ -127,8 +131,9 @@ server <- function(input, output, session) {
     updateTextInput(session, "icd_codes", value = initial_icd_codes)
     
     # update the example ICD plot 
+    sub_dataset_icd_codes <<- get_data_selection_of_icd_codes(initial_icd_codes)
     output$ICDPlot <- renderPlot(
-      createICDPlot(get_data_selection_of_icd_codes(initial_icd_codes), show_icd_codes = TRUE)
+      createICDPlot(sub_dataset_icd_codes, show_icd_codes = input$show_icd_codes)
     )
     
   }) 
@@ -148,22 +153,27 @@ server <- function(input, output, session) {
   
   # initially, show example plot
   output$ICDPlot <- renderPlot(
-      createICDPlot(get_data_selection_of_icd_codes(initial_icd_codes), show_icd_codes = TRUE)
+      createICDPlot(sub_dataset_icd_codes, show_icd_codes = TRUE)
     ) 
+  
+  observeEvent(input$show_icd_codes, {
+    # Create the plot
+    output$ICDPlot <- renderPlot(createICDPlot(sub_dataset_icd_codes, show_icd_codes = input$show_icd_codes)) 
+  })
   
   observeEvent(input$plot_icd, {
     ### Process the ICD input
-    borda <- get_data_selection_of_icd_codes(input$icd_codes)
+    sub_dataset_icd_codes <<- get_data_selection_of_icd_codes(input$icd_codes)
     
     # Check whether the ICD codes actually exist
-    if (nrow(borda) == 0) { 
+    if (nrow(sub_dataset_icd_codes) == 0) { 
       shinyalert("ICD codes not found", 
                  "The ICD codes were not found in the dataset. Please check your input. ") 
       return()
     }
     
     # Create the plot
-    output$ICDPlot <- renderPlot(createICDPlot(borda, show_icd_codes = input$show_icd_codes)) 
+    output$ICDPlot <- renderPlot(createICDPlot(sub_dataset_icd_codes, show_icd_codes = input$show_icd_codes)) 
   })
   
   output$downloadICDPlot <- downloadHandler(
