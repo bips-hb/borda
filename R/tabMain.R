@@ -5,12 +5,12 @@ tabMain <- tabPanel("Main",
                         
                         
                         
-                        p(strong("A Discovery and Verification Approach for Pharmacovigilance using Electronic Health Care Data"),
+                        p(strong("A Discovery and Verification Approach to Pharmacovigilance based on Electronic Healthcare Data"),
                           br(),
-                          em("L.J. Dijkstra, T. Schink, R. Linder, M. Schwaninger, I. Pigeot, M.N. Wright, R. Foraita"),
+                          em("L. Dijkstra, T. Schink, R. Linder, M. Schwaninger, I. Pigeot, M.N. Wright, R. Foraita"),
                           br(),
                           br(),
-                          em("Submitted (2022)"),
+                          em("Submitted (2023)"),
                           hr(),
                           p("In order to explore the data presented in the paper or to upload your 
                             own dataset, go the tab", 
@@ -58,9 +58,9 @@ tabMain <- tabPanel("Main",
                           Here we use the Borda count ranking to combine the results 
                           of multiple methods simultaneously. 
                           The site shows the results presented in our paper"),
-                        p(strong("A Discovery and Verification Approach for Pharmacovigilance using Electronic Health Care Data"),
+                        p(strong("A Discovery and Verification Approach to Pharmacovigilance based on Electronic Healthcare Data"),
                           br(),
-                          em("L.J. Dijkstra, T. Schink, R. Linder, M. Schwaninger, I. Pigeot, M.N. Wright, R. Foraita"),
+                          em("L. Dijkstra, T. Schink, R. Linder, M. Schwaninger, I. Pigeot, M.N. Wright, R. Foraita"),
                         ),
                         p("Not only can you explore our results in more depth, this app also 
                           allows you to use your dataset in order to select signals 
