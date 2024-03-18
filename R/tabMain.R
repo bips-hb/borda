@@ -112,6 +112,11 @@ tabMain <- tabPanel("Main",
                         p("You can upload your own file and use the app to analyze the data. See Section 
                           'Uploading your own dataset' for the details."), 
                         
+                        h5("IMPORTANT: Translation of the ICD-10GM codes"), 
+                        p("The descriptions of the ICD-10GM codes are translated from German to English
+                          using Deepl, since there is no direct one-to-one mapping with the regular ICD-code
+                          system. Note that the translations are not always perfect."),
+                        
                         h4("Tab 'Borda Ranking'"), 
                         p("This tab shows the dataset as in the Data tab, but with two additional columns: 'Borda'
                           shows the Borda ranking, based on the Borda count. The column 'relative_rank' is the 
