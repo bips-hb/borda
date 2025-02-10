@@ -25,7 +25,7 @@ Louis Dijkstra
 
 ### Contact
 
-Ronja Foraita
+Ronja Foraita  
 Leibniz Institute for Prevention Research & Epidemiology   
 E-mail: R (at) leibniz-bips.de
 
