@@ -23,6 +23,11 @@ The app is available under the GNU General Public License v3.0.
 Louis Dijkstra
 
 
+### Acknowledgements
+
+We gratefully acknowledge the financial support from the innovation fund (“Innovationsfonds”) of the Federal Joint Committee in Germany (grant number: 01VSF16020).
+
+
 ### Contact
 
 Ronja Foraita  
